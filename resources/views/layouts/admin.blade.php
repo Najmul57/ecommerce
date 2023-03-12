@@ -21,6 +21,7 @@
     <link rel="stylesheet"
         href="{{ asset('backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -80,6 +81,7 @@
         <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+
         <script>
             $(function() {
                 $("#example1").DataTable({
@@ -99,7 +101,14 @@
                 });
             });
         </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+          placeholder: 'Hello Bootstrap 4',
+          tabsize: 2,
+          height: 100
+        });
+      </script>
 </body>
 
 </html>

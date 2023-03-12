@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SEO extends Model
+class smtp extends Model
 {
     use HasFactory;
     protected $guarded=[];

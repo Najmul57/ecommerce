@@ -34,4 +34,23 @@ class SettingController extends Controller
         DB::table('s_e_o_s')->where('id', $id)->update($data);
         return redirect()->back();
     }
+
+    public function smtp()
+    {
+        $data = DB::table('smtps')->first();
+        return view('admin.setting.smtp', compact('data'));
+    }
+
+    public function smtpupdate(Request $request, $id)
+    {
+        $data = array();
+        $data['mailer'] = $request->mailer;
+        $data['host'] = $request->host;
+        $data['port'] = $request->port;
+        $data['user_name'] = $request->user_name;
+        $data['password'] = $request->password;
+
+        DB::table('smtps')->where('id', $id)->update($data);
+        return redirect()->back();
+    }
 }
