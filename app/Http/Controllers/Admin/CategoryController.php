@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -37,8 +38,9 @@ class CategoryController extends Controller
         return response()->json($data);
     }
 
-    public function update(Request $request){
-        $category=Category::where('id',$request->id)->first();
+    public function update(Request $request)
+    {
+        $category = Category::where('id', $request->id)->first();
 
         $category->update([
             'category_name' => $request->category_name,
@@ -52,5 +54,13 @@ class CategoryController extends Controller
         $destroy = Category::find($id);
         $destroy->delete();
         return redirect()->back();
+    }
+
+
+    // global route
+    public function getChildCategory($id)
+    {
+        $data = DB::table('child_categories')->where('subcategory_id', $id)->get();
+        return response()->json($data);
     }
 }

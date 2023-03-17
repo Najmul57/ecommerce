@@ -61,6 +61,72 @@
                                 <p>Brand</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('warehouse.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Warehouse</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>Product
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('product.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Product</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('product.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage Product</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>Offers
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('coupon.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Coupon</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>E Campaign</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>Pickup Point
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('pickuppoint.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pickup Point</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -75,6 +141,12 @@
                             <a href="{{ route('seo.setting') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>SEO</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('website.setting') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Website Setting</p>
                             </a>
                         </li>
                         <li class="nav-item">
