@@ -32,6 +32,12 @@
                      <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Category
                              List</a>
                      </li>
+                     <li><a href="{{ route('subcategory.index') }}"><i class="fa fa-circle-o"></i> SubCategory
+                             List</a>
+                     </li>
+                     <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> ChildCategory
+                             List</a>
+                     </li>
                  </ul>
              </li>
 
