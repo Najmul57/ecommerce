@@ -21,10 +21,9 @@
                  </span>
              </div>
          </form>
-         <!-- /.search form -->
-         <!-- sidebar menu: : style can be found in sidebar.less -->
+
          <ul class="sidebar-menu">
-             <li class="active treeview">
+             <li class="treeview">
                  <a href="#">
                      <i class="fa fa-dashboard"></i> <span>Category</span> <i class="fa fa-angle-left pull-right"></i>
                  </a>
@@ -35,7 +34,18 @@
                      <li><a href="{{ route('subcategory.index') }}"><i class="fa fa-circle-o"></i> SubCategory
                              List</a>
                      </li>
-                     <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> ChildCategory
+                 </ul>
+             </li>
+
+             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+         </ul>
+         <ul class="sidebar-menu">
+             <li class=" treeview">
+                 <a href="#">
+                     <i class="fa fa-dashboard"></i> <span>Brand</span> <i class="fa fa-angle-left pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu">
+                     <li><a href="{{ route('brand.index') }}"><i class="fa fa-circle-o"></i> Brand
                              List</a>
                      </li>
                  </ul>
