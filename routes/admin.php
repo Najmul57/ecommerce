@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\WarehouseController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -60,5 +61,19 @@ Route::group(['middleware' => 'is_admin'], function () {
             Route::get('/edit/{id}', 'edit')->name('edit');
             Route::post('/update', 'update')->name('update');
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+    //coupon
+    Route::controller(CouponController::class)
+        ->prefix('coupon')
+        ->name('coupon.')
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+            Route::get('/active/{id}', 'active')->name('active');
+            Route::get('/inactive/{id}', 'inactive')->name('inactive');
         });
 });

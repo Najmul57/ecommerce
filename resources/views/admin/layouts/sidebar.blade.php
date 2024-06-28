@@ -56,6 +56,16 @@
                      </li>
                  </ul>
              </li>
+             </li>
+             <li class=" treeview">
+                 <a href="#">
+                     <i class="fa fa-dashboard"></i> <span>Coupon</span> <i class="fa fa-angle-left pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu">
+                     <li><a href="{{ route('coupon.index') }}"><i class="fa fa-circle-o"></i> Coupon List</a>
+                     </li>
+                 </ul>
+             </li>
              <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
          </ul>
      </section>
