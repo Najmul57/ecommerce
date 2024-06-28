@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ChildCategoryController;
+use App\Http\Controllers\Backend\WarehouseController;
 use App\Http\Controllers\Backend\SubCategoryController;
 
 Route::get('admin/login', [LoginController::class, 'adminLogin'])->name('admin.login');
@@ -42,6 +42,18 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::controller(BrandController::class)
         ->prefix('brand')
         ->name('brand.')
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+    //warehouse
+    Route::controller(WarehouseController::class)
+        ->prefix('warehouse')
+        ->name('warehouse.')
         ->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
