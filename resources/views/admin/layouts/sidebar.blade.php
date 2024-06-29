@@ -28,11 +28,20 @@
                      <i class="fa fa-dashboard"></i> <span>Category</span> <i class="fa fa-angle-left pull-right"></i>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Category
-                             List</a>
+                     <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Category List</a>
                      </li>
-                     <li><a href="{{ route('subcategory.index') }}"><i class="fa fa-circle-o"></i> SubCategory
-                             List</a>
+                     <li><a href="{{ route('subcategory.index') }}"><i class="fa fa-circle-o"></i> SubCategory List</a>
+                     </li>
+                 </ul>
+             </li>
+             <li class="treeview">
+                 <a href="#">
+                     <i class="fa fa-dashboard"></i> <span>Product</span> <i class="fa fa-angle-left pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu">
+                     <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> Product List</a>
+                     </li>
+                     <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Add Product</a>
                      </li>
                  </ul>
              </li>
