@@ -39,6 +39,9 @@ Route::group(['middleware' => 'is_admin'], function () {
             Route::get('/edit/{id}', 'edit')->name('edit');
             Route::post('/update', 'update')->name('update');
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
+
+            // Route to get subcategories based on category ID
+            Route::get('/get-subcategory/{id}', 'getSubcategory')->name('get-subcategory');
         });
 
     // brand

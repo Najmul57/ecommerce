@@ -20,6 +20,14 @@ class SubCategoryController extends Controller
         $this->middleware('auth');
     } // end method
 
+    public function getSubcategory($id)
+    {
+        $subcategories = $this->subcategory::where('category_id', $id)->get();
+        return response()->json($subcategories);
+    }
+
+    // end method
+
     public function index()
     {
         $sub_categories = $this->subcategory->latest()->get();

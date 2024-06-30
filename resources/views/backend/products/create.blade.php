@@ -64,24 +64,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-lg-12">
-                                        <label for="exampleInputEmail1">Category/Subcategory <span
-                                                class="text-danger">*</span> </label>
-                                        <select class="form-control" name="subcategory_id" id="subcategory_id">
-                                            <option disabled="" selected="">==choose category==</option>
-                                            @foreach ($category as $row)
-                                                @php
-                                                    $subcategory = App\Models\SubCategory::where(
-                                                        'category_id',
-                                                        $row->id,
-                                                    )->get();
-                                                @endphp
-                                                <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
-                                                @foreach ($subcategory as $item)
-                                                    <option value="{{ $item->id }}">--{{ ucfirst($item->name) }}
-                                                    </option>
-                                                @endforeach
+                                    <div class="form-group col-lg-6">
+                                        <label for="category_id">Category <span class="text-danger">*</span> </label>
+                                        <select class="form-control" name="category_id" id="category_id">
+                                            <option disabled="" selected="">== Choose Category ==</option>
+                                            @foreach ($category as $item)
+                                                <option value="{{ $item->id }}">{{ ucfirst($item->name) }}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="subcategory_id">SubCategory <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="subcategory_id" id="subcategory_id">
+                                            <option disabled="" selected="">== Choose SubCategory ==</option>
                                         </select>
                                     </div>
                                 </div>
@@ -90,17 +85,18 @@
                                         <label for="exampleInputEmail1">Brand <span class="text-danger">*</span>
                                         </label>
                                         <select class="form-control" name="brand_id">
+                                            <option disabled="" selected="">== Choose Brand ==</option>
                                             @foreach ($brands as $row)
-                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                                <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="exampleInputPassword1">Pickup Point</label>
                                         <select class="form-control" name="pickup_point_id">
+                                            <option disabled="" selected="">== Choose Category ==</option>
                                             @foreach ($pickuppoints as $row)
-                                                <option value="{{ $row->id }}">{{ $row->name }}
-                                                </option>
+                                                <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -152,7 +148,6 @@
                                             class="form-control">
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="exampleInputEmail1">Color</label><br>
@@ -165,14 +160,12 @@
                                             data-role="tagsinput" name="size" />
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="exampleInputPassword1">Product Details</label>
                                         <textarea class="form-control textarea" name="description">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="exampleInputPassword1">Video Embed Code</label>
@@ -261,4 +254,27 @@
             });
         });
     </script>
+    <script>
+        $('#category_id').change(function() {
+            var category_id = $(this).val();
+            $.ajax({
+                url: "{{ url('subcategory/get-subcategory/') }}/" + category_id,
+                type: 'GET',
+                success: function(data) {
+                    $('select[name="subcategory_id"]').empty();
+                    $('select[name="subcategory_id"]').append(
+                        '<option disabled selected>== Choose SubCategory ==</option>');
+                    $.each(data, function(key, value) {
+                        var name = value.name.charAt(0).toUpperCase() + value.name.slice(1);
+                        $('select[name="subcategory_id"]').append('<option value="' + value.id +
+                            '">' + name + '</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+
 @endsection
