@@ -56,12 +56,7 @@
                                         <input type="text" class="form-control" name="name"
                                             value="{{ old('name') }}" required="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="exampleInputPassword1">Product Code <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" class="form-control" value="{{ old('code') }}"
-                                            name="code" required="">
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
@@ -91,15 +86,6 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="exampleInputPassword1">Pickup Point</label>
-                                        <select class="form-control" name="pickup_point_id">
-                                            <option disabled="" selected="">== Choose Category ==</option>
-                                            @foreach ($pickuppoints as $row)
-                                                <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
@@ -109,7 +95,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="exampleInputPassword1">Tags</label><br>
-                                        <input type="text" name="tags" class="form-control w-100" style="width:100%"
+                                        <input type="text" name="tag" class="form-control w-100" style="width:100%"
                                             value="{{ old('tags') }}" name="tags" data-role="tagsinput">
                                     </div>
                                 </div>
@@ -117,7 +103,7 @@
                                     <div class="form-group col-lg-4">
                                         <label for="exampleInput">Purchase Price </label>
                                         <input type="text" class="form-control" {{ old('purchase_price') }}
-                                            name="purchase_price">
+                                            name="purchage_price">
                                     </div>
                                     <div class="form-group col-lg-4">
                                         <label for="exampleInput">Selling Price <span class="text-danger">*</span>
@@ -212,16 +198,6 @@
                                 <div class="card p-4">
                                     <h6>Today Deal</h6>
                                     <input type="checkbox" name="today_deal" value="1" data-off-color="danger"
-                                        data-on-color="success">
-                                </div>
-                                <div class="card p-4">
-                                    <h6>Slider Product</h6>
-                                    <input type="checkbox" name="product_slider" value="1" data-off-color="danger"
-                                        data-on-color="success">
-                                </div>
-                                <div class="card p-4">
-                                    <h6>Trendy Product</h6>
-                                    <input type="checkbox" name="trendy" value="1" data-off-color="danger"
                                         data-on-color="success">
                                 </div>
                                 <div class="card p-4">

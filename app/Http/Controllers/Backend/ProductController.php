@@ -46,5 +46,37 @@ class ProductController extends Controller
         $warehouses = $this->warehouse->all();
 
         return view('backend.products.create', compact('brands', 'category', 'subcategories', 'pickuppoints', 'warehouses'));
+    } // end method
+
+    public function store(Request $request)
+    {
+
+        $data = $request->except('thumbnail', 'images');
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $thumbnailPath = $thumbnail->store('thumbnails', 'public');
+            $data['thumbnail'] = $thumbnailPath;
+        }
+
+        if ($request->hasFile('images')) {
+            $images = [];
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('images', 'public');
+                $images[] = $imagePath;
+            }
+            $data['images'] = json_encode($images); // Save images as JSON string
+        }
+
+        $this->product->create($data);
+
+        return redirect()->route('product.index')->with('success', 'Product created successfully.');
+    } // end method
+
+    public function destroy($id)
+    {
+        $product = $this->product->find($id);
+        $product->delete();
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
     }
 }
