@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             $table->string('discount_price')->nullable();
             $table->string('stock_quantity')->nullable();
             $table->string('warehouse')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('images')->nullable();
             $table->integer('featured')->nullable();

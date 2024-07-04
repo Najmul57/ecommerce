@@ -107,5 +107,6 @@ Route::group(['middleware' => 'is_admin'], function () {
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
             Route::get('/active/{id}', 'active')->name('active');
             Route::get('/inactive/{id}', 'inactive')->name('inactive');
+            Route::get('/show/{id}', 'show')->name('show');
         });
 });

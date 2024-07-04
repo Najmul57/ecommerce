@@ -26,15 +26,27 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>
-                                            <img src="{{ Storage::url('thumbnails/' . $item->thumbnail) }}" alt="Thumbnail">
+                                            <img src="{{ asset('storage/thumbnails/' . $item->thumbnail) }}" alt="Thumbnail">
                                         </td>
                                         <td>{{ ucfirst($item->name) }}</td>
                                         <td>{{ ucfirst($item->category->name) }}</td>
-                                        <td>{{ ucfirst($item->status) }}</td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-success edit"><i
+                                            @if ($item->status == 1)
+                                                <a href="{{ route('product.inactive', $item->id) }}"
+                                                    class="btn btn-sm btn-success">Active</a>
+                                            @else
+                                                <a href="{{ route('product.active', $item->id) }}"
+                                                    class="btn btn-sm btn-danger">Inactive</a>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-success"><i
                                                     class="fa
                                                 fa-edit"></i></a>
+                                            <a href="{{ route('product.show', $item->id) }}"
+                                                class="btn btn-sm btn-primary"><i
+                                                    class="fa
+                                                fa-eye"></i></a>
                                             <a href="{{ route('product.destroy', $item->id) }}"
                                                 class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                         </td>

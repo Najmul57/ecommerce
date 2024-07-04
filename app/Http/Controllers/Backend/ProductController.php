@@ -78,5 +78,33 @@ class ProductController extends Controller
         $product = $this->product->find($id);
         $product->delete();
         return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+    } // end method
+
+    public function active($id)
+    {
+        $coupon = $this->product->find($id);
+        if ($coupon) {
+            $coupon->status = '1';  // Corrected to activate the coupon
+            $coupon->save();
+            return back()->with('success', 'Coupon activated successfully.');
+        }
+        return back()->with('error', 'Coupon not found.');
+    } // end method
+
+    public function inactive($id)
+    {
+        $coupon = $this->product->find($id);
+        if ($coupon) {
+            $coupon->status = '0';  // Corrected to deactivate the coupon
+            $coupon->save();
+            return back()->with('success', 'Coupon deactivated successfully.');
+        }
+        return back()->with('error', 'Coupon not found.');
+    } // end method
+
+    public function show($id)
+    {
+        $product = $this->product->find($id);
+        return view('backend.products.show', compact('product'));
     }
 }
