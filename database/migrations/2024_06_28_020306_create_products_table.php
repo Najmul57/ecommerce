@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('brand_id')->nullable();
             $table->integer('pickuppoint_id')->nullable();
             $table->string('name');
+            $table->string('code')->nullable();
             $table->string('unit')->nullable();
             $table->string('tag')->nullable();
             $table->string('video')->nullable();

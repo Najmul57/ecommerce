@@ -22,8 +22,8 @@
             Add New Product
         </h1>
         <ol class="breadcrumb">
-            <li><a href="javascript:void(0)" class="btn btn-success text-white"><i class="fa fa-dashboard"></i> Add
-                    Product</a>
+            <li><a href="{{ route('product.index') }}" class="btn btn-success text-white"><i
+                        class="fa fa-dashboard"></i>Product List</a>
             </li>
         </ol>
     </section>
@@ -56,7 +56,12 @@
                                         <input type="text" class="form-control" name="name"
                                             value="{{ old('name') }}" required="">
                                     </div>
-
+                                    <div class="form-group col-lg-6">
+                                        <label for="code">Code <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" name="code"
+                                            value="{{ old('code') }}" required="">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
@@ -82,6 +87,16 @@
                                         <select class="form-control" name="brand_id">
                                             <option disabled="" selected="">== Choose Brand ==</option>
                                             @foreach ($brands as $row)
+                                                <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="exampleInputEmail1">Pickup Point <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-control" name="pickuppoint_id">
+                                            <option disabled="" selected="">== Choose Brand ==</option>
+                                            @foreach ($pickuppoints as $row)
                                                 <option value="{{ $row->id }}">{{ ucfirst($row->name) }}</option>
                                             @endforeach
                                         </select>

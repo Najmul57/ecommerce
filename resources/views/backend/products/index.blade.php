@@ -2,13 +2,19 @@
 
 @section('admin_content')
     <!-- Main content -->
+    <section class="content-header">
+        <h1>
+            Product
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ route('product.create') }}" class="btn btn-success text-white"><i class="fa fa-dashboard"></i> Add
+                    Product</a></li>
+        </ol>
+    </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Product List</h3>
-                    </div><!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -26,7 +32,8 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/thumbnails/' . $item->thumbnail) }}" alt="Thumbnail">
+                                            <img src="{{ asset('storage/thumbnails/' . $item->thumbnail) }}"
+                                                alt="Thumbnail">
                                         </td>
                                         <td>{{ ucfirst($item->name) }}</td>
                                         <td>{{ ucfirst($item->category->name) }}</td>

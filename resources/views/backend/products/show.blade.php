@@ -1,6 +1,16 @@
 @extends('admin.layouts.admin')
 
 @section('admin_content')
+    <section class="content-header">
+        <h1>
+            {{ $product->name }}t
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ route('product.index') }}" class="btn btn-success text-white"><i
+                        class="fa fa-dashboard"></i>Product List</a>
+            </li>
+        </ol>
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -9,6 +19,10 @@
                     <tr>
                         <th>Product: </th>
                         <td>{{ $product->name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Code: </th>
+                        <td>{{ $product->code }}</td>
                     </tr>
                     <tr>
                         <th>Category: </th>
@@ -28,7 +42,7 @@
                     </tr>
                     <tr>
                         <th>Warehouse: </th>
-                        <td>{{ $product->warehouse->name ?? '' }}</td>
+                        <td>{{ $product->warehouse }}</td>
                     </tr>
                     <tr>
                         <th>Unit: </th>
@@ -121,8 +135,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Upload Date</td>
-                        <td>{{ $product->created_at }}</td>
+                        <th>Upload Date</th>
+                        <td>{{ $product->created_at->format('d M Y') }}</td>
                     </tr>
                 </table>
             </div>
